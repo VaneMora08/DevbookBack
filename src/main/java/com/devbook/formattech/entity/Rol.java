@@ -12,9 +12,10 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String rol;
 
 
-    @ManyToMany
-    @JoinTable(name = "user_id")
-    private Set<User> user = new HashSet<>();
+//    @ManyToMany
+//    @JoinTable(name = "user_id")
+//    private Set<User> user = new HashSet<>();
 }

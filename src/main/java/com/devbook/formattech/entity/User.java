@@ -29,26 +29,26 @@ public class User {
     private String email;
     private String password;
     private Long phone;
-    private Date dateOfBirth;
-    @Timestamp
-    private Date created_at;
-    @Timestamp
-    private Date updated_at;
-    @ManyToOne
-    @JoinColumn(name = "country_id", nullable = false)
-    private Country country;
-
-    @ManyToOne
-    @JoinColumn(name = "gender_id", nullable = false)
-    private Gender gender;
-
-    @ManyToMany
-    @JoinTable(name = "rol_id")
-    private Set <Rol> rol = new HashSet<>();
-
-
-    @ManyToMany
-    @JoinTable(name = "stack_id")
-    private  Set <Stack> stack = new HashSet<>();
+    private String dateOfBirth;
+//    @Timestamp
+//    private Date created_at;
+//    @Timestamp
+//    private Date updated_at;
+//    @ManyToOne
+//    @JoinColumn(name = "country_id", nullable = false)
+//    private Country country;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "gender_id", nullable = false)
+//    private Gender gender;
+//
+//    @ManyToMany
+//    @JoinTable(name = "rol_id")
+//    private Set <Rol> rol = new HashSet<>();
+//
+//
+//    @ManyToMany
+//    @JoinTable(name = "stack_id")
+//    private  Set <Stack> stack = new HashSet<>();
 
 }

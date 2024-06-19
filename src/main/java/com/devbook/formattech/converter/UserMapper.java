@@ -2,7 +2,10 @@ package com.devbook.formattech.converter;
 
 import com.devbook.formattech.Dto.UserDto;
 import com.devbook.formattech.entity.User;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class UserMapper {
 
     public static UserDto userDto (User user) {
