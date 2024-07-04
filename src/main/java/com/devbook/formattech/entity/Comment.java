@@ -1,17 +1,11 @@
     package com.devbook.formattech.entity;
 
-    // que tiene que llevar aquí
     import jakarta.persistence.*;
-    import jdk.jfr.Timestamp;
+
     import lombok.AllArgsConstructor;
     import lombok.Getter;
     import lombok.NoArgsConstructor;
     import lombok.Setter;
-    import org.w3c.dom.Text;
-
-    import java.util.Date;
-    import java.util.HashSet;
-    import java.util.Set;
 
 
     @Getter
