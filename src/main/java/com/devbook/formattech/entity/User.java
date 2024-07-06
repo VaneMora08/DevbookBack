@@ -30,6 +30,8 @@ public class User {
     private String password;
     private Long phone;
     private String dateOfBirth;
+
+
 //    @Timestamp
 //    private Date created_at;
 //    @Timestamp
