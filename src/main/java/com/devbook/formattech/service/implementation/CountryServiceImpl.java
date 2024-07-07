@@ -54,7 +54,7 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public CountryDto updateCountry(int id, CountryDto countryDto) {
         Country existingCountry = countryRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Country not found with id: " + id));
         existingCountry.setName(countryDto.getName());
         Country updatedCountry = countryRepository.save(existingCountry);
         return countryMapper.countryDto(updatedCountry);
@@ -63,7 +63,7 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public void deleteCountry(int id) {
         Country existingCountry = countryRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Country not found with id: " + id));
         countryRepository.delete(existingCountry);
     }
 
