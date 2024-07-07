@@ -1,10 +1,8 @@
 package com.devbook.formattech.service.implementation;
 
 import com.devbook.formattech.Dto.CountryDto;
-import com.devbook.formattech.Dto.UserDto;
 import com.devbook.formattech.converter.CountryMapper;
 import com.devbook.formattech.entity.Country;
-import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.CountryRepository;
 import com.devbook.formattech.service.CountryService;
