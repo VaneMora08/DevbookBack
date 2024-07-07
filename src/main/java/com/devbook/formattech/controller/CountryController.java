@@ -1,7 +1,6 @@
 package com.devbook.formattech.controller;
 
 import com.devbook.formattech.Dto.CountryDto;
-import com.devbook.formattech.Dto.UserDto;
 import com.devbook.formattech.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +24,7 @@ public class CountryController {
             return ResponseEntity.ok(createdCountry);
         }
 
-
         @GetMapping("/getCountries")
-
         public ResponseEntity <List<CountryDto>> getCountries() {
             List<CountryDto> countries = countryService.getAllCountries();
             return ResponseEntity.ok(countries);
