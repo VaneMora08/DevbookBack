@@ -24,9 +24,7 @@ public class CountryController {
             return ResponseEntity.ok(createdCountry);
         }
 
-
         @GetMapping("/getCountries")
-
         public ResponseEntity <List<CountryDto>> getCountries() {
             List<CountryDto> countries = countryService.getAllCountries();
             return ResponseEntity.ok(countries);

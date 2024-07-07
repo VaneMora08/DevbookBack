@@ -33,8 +33,6 @@ public class CountryServiceImpl implements CountryService {
         return countryMapper.countryDto(country);
     }
 
-
-
     @Override
     public List<CountryDto> getAllCountries() {
         return countryRepository.findAll().stream()
