@@ -10,5 +10,5 @@ public interface RolService {
   List<RolDto> getAllRoles();
   RolDto getRolById(int id);
   RolDto updateRol(int id, RolDto rolDto);
-  void deleteRol(int id)
+  void deleteRol(int id);
 }

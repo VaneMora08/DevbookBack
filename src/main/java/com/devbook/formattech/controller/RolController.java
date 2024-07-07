@@ -35,7 +35,7 @@ public class RolController {
     return ResponseEntity.ok(rol);
   }
 
-  @PutMapping("/{id")
+  @PutMapping("/{id}")
   public ResponseEntity<RolDto> updateRol(@PathVariable int id, @RequestBody RolDto rolDto) {
     RolDto updatedRol = rolService.updateRol(id, rolDto);
     return ResponseEntity.ok(updatedRol);
