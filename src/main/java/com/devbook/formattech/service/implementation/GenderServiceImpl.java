@@ -1,4 +1,6 @@
 package com.devbook.formattech.service.implementation;
 
-public class GenderServiceImpl {
+import com.devbook.formattech.service.GenderService;
+
+public class GenderServiceImpl implements GenderService {
 }

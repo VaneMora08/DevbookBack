@@ -1,4 +1,6 @@
 package com.devbook.formattech.service.implementation;
 
-public class PostServiceImpl {
+import com.devbook.formattech.service.PostService;
+
+public class PostServiceImpl implements PostService {
 }

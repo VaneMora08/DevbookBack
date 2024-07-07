@@ -1,4 +1,6 @@
 package com.devbook.formattech.service.implementation;
 
-public class RolServiceImpl {
+import com.devbook.formattech.service.RolService;
+
+public class RolServiceImpl implements RolService {
 }

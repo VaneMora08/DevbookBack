@@ -1,4 +1,6 @@
 package com.devbook.formattech.service.implementation;
 
-public class UserProfileServiceImpl {
+import com.devbook.formattech.service.UserProfileService;
+
+public class UserProfileServiceImpl implements UserProfileService {
 }

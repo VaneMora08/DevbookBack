@@ -1,4 +1,7 @@
 package com.devbook.formattech.repository;
 
-public interface GenderRepository {
+import com.devbook.formattech.entity.Gender;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GenderRepository extends JpaRepository <Gender, Integer> {
 }

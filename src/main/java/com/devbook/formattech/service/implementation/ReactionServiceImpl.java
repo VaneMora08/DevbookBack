@@ -1,4 +1,6 @@
 package com.devbook.formattech.service.implementation;
 
-public class ReactionServiceImpl {
+import com.devbook.formattech.service.ReactionService;
+
+public class ReactionServiceImpl implements ReactionService {
 }

@@ -1,4 +1,7 @@
 package com.devbook.formattech.repository;
 
-public interface UserProfileRepository {
+import com.devbook.formattech.entity.UserProfile;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserProfileRepository extends JpaRepository <UserProfile, Integer> {
 }

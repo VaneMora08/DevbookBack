@@ -1,4 +1,6 @@
 package com.devbook.formattech.service.implementation;
 
-public class StackServiceImpl {
+import com.devbook.formattech.service.StackService;
+
+public class StackServiceImpl implements StackService {
 }

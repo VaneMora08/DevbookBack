@@ -1,4 +1,6 @@
 package com.devbook.formattech.service.implementation;
 
-public class CommentServiceImpl {
+import com.devbook.formattech.service.CommentService;
+
+public class CommentServiceImpl implements CommentService {
 }
