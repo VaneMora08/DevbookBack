@@ -16,7 +16,7 @@ public class FriendShipMapper {
         return friendShipDto;
     }
 
-    public static FriendShip friendShipDto (FriendShipDto friendShipDto) {
+    public static FriendShip friendShip (FriendShipDto friendShipDto) {
 
         FriendShip friendShip = new FriendShip();
         friendShip.setId(friendShipDto.getId());
