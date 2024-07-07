@@ -55,6 +55,8 @@ public class CommentServiceImpl implements CommentService {
         Comment existingComment = commentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment not found with id: " + id));
         existingComment.setComm_content(commentDto.getComm_content());
+        existingComment.setComm_media_url(commentDto.getComm_media_url());
+        existingComment.setComm_picture_url(commentDto.getComm_picture_url());
         Comment updatedComment = commentRepository.save(existingComment);
         return commentMapper.commentDto(updatedComment);
     }
