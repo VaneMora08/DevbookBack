@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 @Getter
 @Setter
@@ -20,6 +21,9 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String rol;
+    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Stack> stacks;
+
 
 
 //    @ManyToMany
