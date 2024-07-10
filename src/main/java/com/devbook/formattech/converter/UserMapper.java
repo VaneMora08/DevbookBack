@@ -34,7 +34,7 @@ public class UserMapper {
         user.setPassword(userDto.getPassword());
         user.setPhone(userDto.getPhone());
         user.setDateOfBirth(userDto.getDateOfBirth());
-        user.setRoles(userDto.getRoles().stream().map(RolMapper::rol).collect(Collectors.toList()));
+        user.setRoles(userDto.getRoles().stream().map(RolMapper::rolDto).collect(Collectors.toList()));
         return user;
 
     }

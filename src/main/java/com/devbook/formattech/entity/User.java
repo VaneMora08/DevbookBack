@@ -52,6 +52,11 @@ public class User {
     joinColumns = @JoinColumn (name = "id"),
     inverseJoinColumns = @JoinColumn (name= "id_role"))
     private List<Rol> roles;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "gender_id")
+    private Gender gender ;
+
 //
 //
 //    @ManyToMany
