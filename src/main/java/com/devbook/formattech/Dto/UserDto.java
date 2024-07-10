@@ -16,7 +16,6 @@ public class UserDto {
     private String password;
     private Long phone;
     private String dateOfBirth;
-
     private List<RolDto> roles;
 
 

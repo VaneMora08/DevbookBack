@@ -20,7 +20,7 @@ public class UserMapper {
         userDto.setPassword(user.getPassword());
         userDto.setPhone(user.getPhone());
         userDto.setDateOfBirth(user.getDateOfBirth());
-        userDto.setRoles(user.getRoles().stream().map(RolMapper::rol).collect(Collectors.toList()));
+        userDto.setRoles(user.getRoles().stream().map(RolMapper::rolDto).collect(Collectors.toList()));
         return userDto;
     }
 
@@ -34,7 +34,7 @@ public class UserMapper {
         user.setPassword(userDto.getPassword());
         user.setPhone(userDto.getPhone());
         user.setDateOfBirth(userDto.getDateOfBirth());
-        user.setRoles(userDto.getRoles().stream().map(RolMapper::rolDto).collect(Collectors.toList()));
+        user.setRoles(userDto.getRoles().stream().map(RolMapper::rol).collect(Collectors.toList()));
         return user;
 
     }
