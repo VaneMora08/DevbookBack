@@ -11,5 +11,5 @@ public class GenderDto {
 
     private int id;
     private String name;
-    private List<UserDto> users;
+
 }
