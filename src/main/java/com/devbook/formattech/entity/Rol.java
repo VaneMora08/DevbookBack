@@ -23,6 +23,8 @@ public class Rol {
     private String rol;
     @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Stack> stacks;
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 
 
 

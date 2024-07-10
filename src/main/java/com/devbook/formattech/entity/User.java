@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -32,6 +33,8 @@ public class User {
     private String dateOfBirth;
 
 
+
+
 //    @Timestamp
 //    private Date created_at;
 //    @Timestamp
@@ -44,9 +47,11 @@ public class User {
 //    @JoinColumn(name = "gender_id", nullable = false)
 //    private Gender gender;
 //
-//    @ManyToMany
-//    @JoinTable(name = "rol_id")
-//    private Set <Rol> rol = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "user_roles",
+    joinColumns = @JoinColumn (name = "id"),
+    inverseJoinColumns = @JoinColumn (name= "id"))
+    private List<Rol> roles;
 //
 //
 //    @ManyToMany
