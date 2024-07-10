@@ -21,6 +21,7 @@ public class UserMapper {
         userDto.setPhone(user.getPhone());
         userDto.setDateOfBirth(user.getDateOfBirth());
         userDto.setRoles(user.getRoles().stream().map(RolMapper::rol).collect(Collectors.toList()));
+
         return userDto;
     }
 

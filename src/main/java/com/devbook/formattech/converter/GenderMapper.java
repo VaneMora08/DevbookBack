@@ -5,6 +5,8 @@ import com.devbook.formattech.Dto.GenderDto;
 import com.devbook.formattech.entity.Gender;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+
 @Component
 public class GenderMapper {
 
@@ -13,6 +15,7 @@ public class GenderMapper {
         GenderDto genderDto = new GenderDto();
         genderDto.setId(gender.getId());
         genderDto.setName(gender.getName());
+        genderDto.setUsers(gender.getUsers().stream().map(UserMapper::user).collect(Collectors.toList()));
         return genderDto;
     }
 
@@ -21,6 +24,7 @@ public class GenderMapper {
         Gender gender = new Gender();
         gender.setId(genderDto.getId());
         gender.setName(genderDto.getName());
+        gender.setUsers(genderDto.getUsers().stream().map(UserMapper::userDto).collect(Collectors.toList()));
         return gender;
     }
 }
