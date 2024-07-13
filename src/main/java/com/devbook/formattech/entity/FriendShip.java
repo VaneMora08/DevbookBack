@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.w3c.dom.Text;
 
 import java.util.Date;
@@ -26,17 +28,10 @@ public class FriendShip {
 
     private int id;
     private String status;
-//    @Timestamp
-//    private Date created_at;
-//    @Timestamp
-//    private Date updated_at;
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "friend_id", nullable = false)
-//    private User user;
-//      como colocar el constraints
+
+    @CreationTimestamp
+    private Date created_at;
+    @UpdateTimestamp
+    private Date updated_at;
 
 }

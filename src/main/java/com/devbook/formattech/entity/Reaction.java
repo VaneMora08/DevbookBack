@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.w3c.dom.Text;
 
 import java.util.Date;
@@ -28,16 +30,8 @@ public class Reaction {
     private int id;
     private String type;
 
-//    @Timestamp
-//    private Date created_at;
-//    @Timestamp
-//    private Date updated_at;
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
-//    @ManyToOne
-//    @JoinColumn(name = "post_id", nullable = false) o table
-//    private Post post;
-
-//
+    @CreationTimestamp
+    private Date created_at;
+    @UpdateTimestamp
+    private Date updated_at;
 }

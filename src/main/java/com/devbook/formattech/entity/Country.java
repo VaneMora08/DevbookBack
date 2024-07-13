@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -22,6 +25,10 @@ public class Country {
     private int id;
     private String name;
 
+    @CreationTimestamp
+    private Date created_at;
+    @UpdateTimestamp
+    private Date updated_at;
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<User> users;
 

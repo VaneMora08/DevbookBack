@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.w3c.dom.Text;
 
 import java.util.Date;
@@ -29,14 +31,10 @@ public class Post {
     private String post_media_url;
     private String post_picture_url;
 
-//    @Timestamp
-//    private Date created_at;
-//    @Timestamp
-//    private Date updated_at;
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
-//
+    @CreationTimestamp
+    private Date created_at;
+    @UpdateTimestamp
+    private Date updated_at;
 
 
 }

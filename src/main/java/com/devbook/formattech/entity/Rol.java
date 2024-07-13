@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,6 +25,10 @@ public class Rol {
     private int id;
     private String rol;
 
+    @CreationTimestamp
+    private Date created_at;
+    @UpdateTimestamp
+    private Date updated_at;
     @ManyToMany
     @JoinTable(
             name = "role_stacks",
@@ -29,10 +36,7 @@ public class Rol {
             inverseJoinColumns = @JoinColumn(name = "stack_id")
     )
     private List<Stack> stacks;
-
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
-
-
 
 }
