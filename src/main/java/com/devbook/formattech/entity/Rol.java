@@ -22,7 +22,12 @@ public class Rol {
     private int id;
     private String rol;
 
-    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany
+    @JoinTable(
+            name = "role_stacks",
+            joinColumns = @JoinColumn(name = "role_id"),
+            inverseJoinColumns = @JoinColumn(name = "stack_id")
+    )
     private List<Stack> stacks;
 
     @ManyToMany(mappedBy = "roles")
@@ -30,8 +35,4 @@ public class Rol {
 
 
 
-//    @ManyToMany
-//    @JoinTable(name = "user_id")
-//    private Set<User> user = new HashSet<>();
-    // hay una foranea de stack
 }

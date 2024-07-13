@@ -22,6 +22,7 @@ public class UserMapper {
         userDto.setDateOfBirth(user.getDateOfBirth());
         userDto.setRoles(user.getRoles().stream().map(RolMapper::rolDto).collect(Collectors.toList()));
         userDto.setGender(GenderMapper.genderDto(user.getGender()));
+        userDto.setCountry(CountryMapper.countryDto(user.getCountry()));
         return userDto;
     }
 
@@ -37,6 +38,7 @@ public class UserMapper {
         user.setDateOfBirth(userDto.getDateOfBirth());
         user.setRoles(userDto.getRoles().stream().map(RolMapper::rol).collect(Collectors.toList()));
         user.setGender(GenderMapper.gender(userDto.getGender()));
+        user.setCountry(CountryMapper.country(userDto.getCountry()));
         return user;
 
     }

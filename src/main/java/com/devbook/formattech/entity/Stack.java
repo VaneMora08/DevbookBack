@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -19,8 +21,8 @@ public class Stack {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int id;
     private String name;
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "rol_id")
-    private Rol rol ;
+
+    @ManyToMany(mappedBy = "stacks")
+    private List<Rol> roles;
 
 }

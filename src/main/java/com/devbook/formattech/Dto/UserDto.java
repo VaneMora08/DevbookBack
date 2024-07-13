@@ -18,6 +18,8 @@ public class UserDto {
     private String dateOfBirth;
     private GenderDto gender;
     private List<RolDto> roles;
+    private CountryDto country;
+
 
 
 }
