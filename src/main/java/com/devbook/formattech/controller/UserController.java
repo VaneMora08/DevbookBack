@@ -1,6 +1,9 @@
 package com.devbook.formattech.controller;
 
+import com.devbook.formattech.Dto.PostDto;
 import com.devbook.formattech.Dto.UserDto;
+import com.devbook.formattech.entity.Post;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,7 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
 
     @PostMapping
     public ResponseEntity <UserDto> createUser(@RequestBody UserDto userDto) {
@@ -43,8 +47,10 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable int id) {
-        userService.deleteUser(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<User> deleteUser(@PathVariable int id) {
+        User deleteUser = userService.deleteUser(id);
+        return ResponseEntity.ok(deleteUser);
     }
+
+
 }

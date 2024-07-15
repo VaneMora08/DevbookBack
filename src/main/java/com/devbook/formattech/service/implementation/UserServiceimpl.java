@@ -1,7 +1,9 @@
 package com.devbook.formattech.service.implementation;
 
+import com.devbook.formattech.Dto.PostDto;
 import com.devbook.formattech.Dto.UserDto;
 import com.devbook.formattech.converter.UserMapper;
+import com.devbook.formattech.entity.Post;
 import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.*;
@@ -32,6 +34,9 @@ public class UserServiceimpl implements UserService {
 
     @Autowired
     private StackRepository stackRepository;
+
+    @Autowired
+    private  PostRepository postRepository;
 
     @Autowired
     private UserMapper userMapper;
@@ -91,11 +96,12 @@ public class UserServiceimpl implements UserService {
         return userMapper.userDto(updatedUser);
     }
 
-    @Override
-    public void deleteUser(int id) {
-        User existingUser = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
 
-        userRepository.delete(existingUser);
+    public User deleteUser(int id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        user.setActive(false);
+       return userRepository.save(user);
     }
+
 }

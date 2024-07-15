@@ -1,5 +1,6 @@
 package com.devbook.formattech.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,7 @@ public class User {
     private String password;
     private Long phone;
     private String dateOfBirth;
+    private boolean active = true;
 
     @CreationTimestamp
     private Date created_at;
@@ -52,4 +54,10 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
     private Country country;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Post> posts;
+
+
 }

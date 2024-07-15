@@ -1,5 +1,7 @@
 package com.devbook.formattech.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
@@ -30,11 +32,16 @@ public class Post {
     private String post_content;
     private String post_media_url;
     private String post_picture_url;
+    private boolean active = true;
 
     @CreationTimestamp
     private Date created_at;
     @UpdateTimestamp
     private Date updated_at;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private User user;
 
 }
