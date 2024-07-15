@@ -2,6 +2,7 @@ package com.devbook.formattech.controller;
 
 
 import com.devbook.formattech.Dto.PostDto;
+import com.devbook.formattech.entity.Post;
 import com.devbook.formattech.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,9 +45,21 @@ public class PostController {
         return ResponseEntity.ok(updatedPost);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePost(@PathVariable int id) {
-        postService.deletePost(id);
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/{postId}")
+    public ResponseEntity<Post> deactivatePost(@PathVariable int postId) {
+        Post deactivatedPost = postService.deactivatePost(postId);
+        return ResponseEntity.ok(deactivatedPost);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Post>> getPostsByUser(@PathVariable int userId) {
+        List<Post> posts = postService.getPostsByUser(userId);
+        return ResponseEntity.ok(posts);
+    }
+
+    @PostMapping("/user/{userId}")
+    public ResponseEntity<Post> createPostForUser(@PathVariable int userId, @RequestBody PostDto postDto) {
+        Post post = postService.createPostForUser(userId, postDto);
+        return ResponseEntity.ok(post);
     }
 }

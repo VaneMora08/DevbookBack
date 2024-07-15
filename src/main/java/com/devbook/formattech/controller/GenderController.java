@@ -1,6 +1,8 @@
 package com.devbook.formattech.controller;
 
 import com.devbook.formattech.Dto.GenderDto;
+import com.devbook.formattech.entity.Gender;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.service.GenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,8 +46,8 @@ public class GenderController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteGender(@PathVariable int id) {
-        genderService.deleteGender(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Gender> deleteUser(@PathVariable int id) {
+        Gender deleteGender = genderService.deleteGender(id);
+        return ResponseEntity.ok(deleteGender);
     }
 }

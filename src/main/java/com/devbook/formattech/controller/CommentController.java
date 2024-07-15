@@ -1,6 +1,8 @@
 package com.devbook.formattech.controller;
 
 import com.devbook.formattech.Dto.CommentDto;
+import com.devbook.formattech.entity.Comment;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,8 +46,8 @@ public class CommentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteComment(@PathVariable int id) {
-        commentService.deleteComment(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Comment> deleteComment(@PathVariable int id) {
+        Comment deleteComment = commentService.deleteComment(id);
+        return ResponseEntity.ok(deleteComment);
     }
 }

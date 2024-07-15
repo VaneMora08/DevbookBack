@@ -6,6 +6,10 @@
     import lombok.Getter;
     import lombok.NoArgsConstructor;
     import lombok.Setter;
+    import org.hibernate.annotations.CreationTimestamp;
+    import org.hibernate.annotations.UpdateTimestamp;
+
+    import java.util.Date;
 
 
     @Getter
@@ -23,16 +27,10 @@
         private String comm_content;
         private String comm_media_url;
         private String comm_picture_url;
+        private boolean active = true;
 
-    //    @Timestamp
-    //    private Date created_at;
-    //    @Timestamp
-    //    private Date updated_at;
-    //    @ManyToOne
-    //    @JoinColumn(name = "post_id", nullable = false) o table
-    //    private Post post;
-    //    @ManyToOne
-    //    @JoinColumn(name = "user_id", nullable = false)
-    //    private User user;
-    //
+        @CreationTimestamp
+        private Date created_at;
+        @UpdateTimestamp
+        private Date updated_at;
     }

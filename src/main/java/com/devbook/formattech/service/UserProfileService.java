@@ -1,6 +1,7 @@
 package com.devbook.formattech.service;
 
 import com.devbook.formattech.Dto.UserProfileDto;
+import com.devbook.formattech.entity.UserProfile;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ public interface UserProfileService {
 
   UserProfileDto updateUserProfile(int id, UserProfileDto userProfileDto);
 
-  void deleteUserProfile(int id);
+  UserProfile deleteUserP(int id);
 }

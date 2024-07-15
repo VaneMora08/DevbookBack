@@ -4,6 +4,8 @@ import com.devbook.formattech.Dto.UserDto;
 import com.devbook.formattech.entity.User;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+
 
 @Component
 public class UserMapper {
@@ -18,6 +20,9 @@ public class UserMapper {
         userDto.setPassword(user.getPassword());
         userDto.setPhone(user.getPhone());
         userDto.setDateOfBirth(user.getDateOfBirth());
+        userDto.setRoles(user.getRoles().stream().map(RolMapper::rolDto).collect(Collectors.toList()));
+        userDto.setGender(GenderMapper.genderDto(user.getGender()));
+        userDto.setCountry(CountryMapper.countryDto(user.getCountry()));
         return userDto;
     }
 
@@ -31,6 +36,9 @@ public class UserMapper {
         user.setPassword(userDto.getPassword());
         user.setPhone(userDto.getPhone());
         user.setDateOfBirth(userDto.getDateOfBirth());
+        user.setRoles(userDto.getRoles().stream().map(RolMapper::rol).collect(Collectors.toList()));
+        user.setGender(GenderMapper.gender(userDto.getGender()));
+        user.setCountry(CountryMapper.country(userDto.getCountry()));
         return user;
 
     }

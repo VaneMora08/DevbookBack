@@ -5,6 +5,8 @@ import com.devbook.formattech.Dto.GenderDto;
 import com.devbook.formattech.entity.Gender;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+
 @Component
 public class GenderMapper {
 

@@ -1,6 +1,8 @@
 package com.devbook.formattech.controller;
 
 import com.devbook.formattech.Dto.StackDto;
+import com.devbook.formattech.entity.Stack;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.service.StackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,8 +45,9 @@ public class StackController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStack(@PathVariable int id) {
-        stackService.deleteStack(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Stack> deleteStack(@PathVariable int id) {
+        Stack deleteStack = stackService.deleteStack(id);
+        return ResponseEntity.ok(deleteStack);
     }
 }
+

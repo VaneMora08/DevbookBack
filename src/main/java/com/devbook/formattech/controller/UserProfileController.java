@@ -2,6 +2,8 @@ package com.devbook.formattech.controller;
 
 import com.devbook.formattech.Dto.UserDto;
 import com.devbook.formattech.Dto.UserProfileDto;
+import com.devbook.formattech.entity.User;
+import com.devbook.formattech.entity.UserProfile;
 import com.devbook.formattech.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,8 +43,8 @@ public class UserProfileController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> deleteUserProfile(@PathVariable int id) {
-    userProfileService.deleteUserProfile(id);
-    return ResponseEntity.noContent().build();
+  public ResponseEntity<UserProfile> deleteUser(@PathVariable int id) {
+    UserProfile deleteUserP = userProfileService.deleteUserP(id);
+    return ResponseEntity.ok(deleteUserP);
   }
 }

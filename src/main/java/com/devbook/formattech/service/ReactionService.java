@@ -1,6 +1,7 @@
 package com.devbook.formattech.service;
 
 import com.devbook.formattech.Dto.ReactionDto;
+import com.devbook.formattech.entity.Reaction;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface ReactionService {
     List<ReactionDto> getAllReactions();
     ReactionDto getReactionById(int id);
     ReactionDto updateReaction(int id, ReactionDto reactionDto);
-    void deleteReaction(int id);
+    Reaction deleteReaction(int id);
 }
