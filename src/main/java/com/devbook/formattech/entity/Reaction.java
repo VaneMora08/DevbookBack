@@ -29,6 +29,7 @@ public class Reaction {
 
     private int id;
     private String type;
+    private boolean active = true;
 
     @CreationTimestamp
     private Date created_at;

@@ -24,6 +24,7 @@ public class Stack {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int id;
     private String name;
+    private boolean active = true;
 
     @ManyToMany(mappedBy = "stacks")
     private List<Rol> roles;

@@ -24,6 +24,7 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String rol;
+    private boolean active = true;
 
     @CreationTimestamp
     private Date created_at;

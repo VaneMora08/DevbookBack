@@ -28,6 +28,7 @@ public class FriendShip {
 
     private int id;
     private String status;
+    private boolean active = true;
 
     @CreationTimestamp
     private Date created_at;

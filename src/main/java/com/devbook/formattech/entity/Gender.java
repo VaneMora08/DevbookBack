@@ -24,6 +24,7 @@ public class Gender {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private boolean active = true;
 
     @CreationTimestamp
     private Date created_at;

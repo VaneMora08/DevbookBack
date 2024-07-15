@@ -5,6 +5,7 @@ import com.devbook.formattech.Dto.UserDto;
 import com.devbook.formattech.converter.UserMapper;
 import com.devbook.formattech.entity.Post;
 import com.devbook.formattech.entity.User;
+import com.devbook.formattech.entity.UserProfile;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.*;
 import com.devbook.formattech.service.UserService;
@@ -33,10 +34,7 @@ public class UserServiceimpl implements UserService {
     private CountryRepository countryRepository;
 
     @Autowired
-    private StackRepository stackRepository;
-
-    @Autowired
-    private  PostRepository postRepository;
+    private UserProfileRepository profileRepository;
 
     @Autowired
     private UserMapper userMapper;
@@ -55,6 +53,11 @@ public class UserServiceimpl implements UserService {
                 .orElseThrow(() -> new ResourceNotFoundException("Country not found with id: " + userDto.getCountry().getId())));
         log.info("Creating user: " + userDto);
         user = userRepository.save(user);
+
+
+        UserProfile userProfile = new UserProfile();
+        userProfile.setUser(user);
+        profileRepository.save(userProfile);
         return userMapper.userDto(user);
     }
 

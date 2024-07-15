@@ -3,6 +3,7 @@ package com.devbook.formattech.service.implementation;
 import com.devbook.formattech.Dto.FriendShipDto;
 import com.devbook.formattech.converter.FriendShipMapper;
 import com.devbook.formattech.entity.FriendShip;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.FriendShipRepository;
 import com.devbook.formattech.service.FriendShipService;
@@ -55,11 +56,11 @@ public class FriendShipServiceImpl  implements FriendShipService {
     return friendShipMapper.friendShipDto(updatedFrienship);
   }
 
-  @Override
-  public void deleteFriendShip(int id) {
-    FriendShip existingFriendShip = friendShipRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Friendship not found with id: " + id));
-    friendShipRepository.delete((existingFriendShip));
+  public FriendShip deleteFriendShip(int id) {
+    FriendShip friendShip = friendShipRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+    friendShip.setActive(false);
+    return friendShipRepository.save(friendShip);
   }
 
 }

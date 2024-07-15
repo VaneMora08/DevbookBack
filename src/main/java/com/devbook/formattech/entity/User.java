@@ -59,5 +59,8 @@ public class User {
     @JsonManagedReference
     private List<Post> posts;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private UserProfile userProfile;
+
 
 }

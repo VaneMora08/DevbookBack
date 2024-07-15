@@ -2,6 +2,7 @@ package com.devbook.formattech.controller;
 
 import com.devbook.formattech.Dto.RolDto;
 import com.devbook.formattech.entity.Rol;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -42,8 +43,8 @@ public class RolController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> deleteRol(@PathVariable int id) {
-    rolService.deleteRol(id);
-    return ResponseEntity.noContent().build();
+  public ResponseEntity<Rol> deleteUser(@PathVariable int id) {
+    Rol deleteRole = rolService.deleteRole(id);
+    return ResponseEntity.ok(deleteRole);
   }
 }

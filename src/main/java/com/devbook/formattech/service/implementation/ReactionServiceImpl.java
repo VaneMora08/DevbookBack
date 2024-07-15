@@ -3,6 +3,7 @@ package com.devbook.formattech.service.implementation;
 import com.devbook.formattech.Dto.ReactionDto;
 import com.devbook.formattech.converter.ReactionMapper;
 import com.devbook.formattech.entity.Reaction;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.ReactionRepository;
 import com.devbook.formattech.service.ReactionService;
@@ -56,11 +57,11 @@ public class ReactionServiceImpl implements ReactionService {
         return reactionMapper.reactionDto(updatedReaction);
     }
 
-    @Override
-    public void deleteReaction(int id) {
-        Reaction existingReaction = reactionRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Reaction not found with id: " + id));
-        reactionRepository.delete(existingReaction);
+    public Reaction deleteReaction(int id) {
+        Reaction reaction = reactionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        reaction.setActive(false);
+        return reactionRepository.save(reaction);
     }
 
 }

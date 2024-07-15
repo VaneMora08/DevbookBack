@@ -1,6 +1,7 @@
 package com.devbook.formattech.service.implementation;
 
 import com.devbook.formattech.entity.Rol;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.service.RolService;
 import com.devbook.formattech.repository.RolRepository;
 import com.devbook.formattech.converter.RolMapper;
@@ -56,9 +57,10 @@ public class RolServiceImpl implements RolService {
   }
 
   @Override
-  public void deleteRol(int id) {
-    Rol existingRol = rolRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Rol not found with id: " + id));
-    rolRepository.delete(existingRol);
+  public Rol deleteRole(int id) {
+    Rol role = rolRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+    role.setActive(false);
+    return rolRepository.save(role);
   }
 }

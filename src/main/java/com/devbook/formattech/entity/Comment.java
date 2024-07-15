@@ -27,6 +27,7 @@
         private String comm_content;
         private String comm_media_url;
         private String comm_picture_url;
+        private boolean active = true;
 
         @CreationTimestamp
         private Date created_at;

@@ -29,9 +29,14 @@ public class UserProfile {
     private int id;
     private String bio;
     private String profile_picture_url;
+    private boolean active = true;
 
     @CreationTimestamp
     private Date created_at;
     @UpdateTimestamp
     private Date updated_at;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
 }

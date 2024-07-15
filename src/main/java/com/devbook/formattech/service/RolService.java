@@ -1,6 +1,7 @@
 package com.devbook.formattech.service;
 
 import com.devbook.formattech.Dto.RolDto;
+import com.devbook.formattech.entity.Rol;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface RolService {
   List<RolDto> getAllRoles();
   RolDto getRolById(int id);
   RolDto updateRol(int id, RolDto rolDto);
-  void deleteRol(int id);
+  Rol deleteRole(int id);
 }
