@@ -3,6 +3,7 @@ package com.devbook.formattech.service.implementation;
 
 import com.devbook.formattech.Dto.UserProfileDto;
 import com.devbook.formattech.converter.UserProfileMapper;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.entity.UserProfile;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.UserProfileRepository;
@@ -57,10 +58,10 @@ public class UserProfileServiceImpl implements UserProfileService {
     return userProfileMapper.userProfileDto(updatedUserProfile);
   }
 
-  @Override
-  public void deleteUserProfile(int id) {
-    UserProfile existingUserProfile = userProfileRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("User profile not found with id: " + id));
-    userProfileRepository.delete(existingUserProfile);
+  public UserProfile deleteUserP(int id) {
+    UserProfile userP = userProfileRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+    userP.setActive(false);
+    return userProfileRepository.save(userP);
   }
 }

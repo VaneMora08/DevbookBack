@@ -2,6 +2,8 @@ package com.devbook.formattech.controller;
 
 
 import com.devbook.formattech.Dto.ReactionDto;
+import com.devbook.formattech.entity.Reaction;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.service.ReactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,8 +47,8 @@ public class ReactionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReaction(@PathVariable int id) {
-        reactionService.deleteReaction(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Reaction> deleteReaction(@PathVariable int id) {
+        Reaction deleteReaction = reactionService.deleteReaction(id);
+        return ResponseEntity.ok(deleteReaction);
     }
 }

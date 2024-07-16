@@ -1,6 +1,7 @@
 package com.devbook.formattech.service;
 
 import com.devbook.formattech.Dto.CountryDto;
+import com.devbook.formattech.entity.Country;
 
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface CountryService {
     List<CountryDto> getAllCountries();
     CountryDto getCountryById(int id);
     CountryDto updateCountry(int id, CountryDto countryDto);
-    void deleteCountry(int id);
+    Country deleteCountry(int id);
 }

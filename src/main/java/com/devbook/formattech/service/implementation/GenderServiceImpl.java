@@ -3,6 +3,7 @@ package com.devbook.formattech.service.implementation;
 import com.devbook.formattech.Dto.GenderDto;
 import com.devbook.formattech.converter.GenderMapper;
 import com.devbook.formattech.entity.Gender;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.GenderRepository;
 import com.devbook.formattech.service.GenderService;
@@ -58,11 +59,11 @@ public class GenderServiceImpl implements GenderService {
         return genderMapper.genderDto(updatedGender);
     }
 
-    @Override
-    public void deleteGender(int id) {
-        Gender existingGender = genderRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Gender not found with id: " + id));
-        genderRepository.delete(existingGender);
+    public Gender deleteGender(int id) {
+        Gender gender = genderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        gender.setActive(false);
+        return genderRepository.save(gender);
     }
 
 }

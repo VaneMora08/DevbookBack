@@ -3,6 +3,7 @@ package com.devbook.formattech.service.implementation;
 import com.devbook.formattech.Dto.CommentDto;
 import com.devbook.formattech.converter.CommentMapper;
 import com.devbook.formattech.entity.Comment;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.CommentRepository;
 import com.devbook.formattech.service.CommentService;
@@ -61,10 +62,10 @@ public class CommentServiceImpl implements CommentService {
         return commentMapper.commentDto(updatedComment);
     }
 
-    @Override
-    public void deleteComment(int id) {
-        Comment existingComment = commentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Comment not found with id: " + id));
-        commentRepository.delete(existingComment);
+    public Comment deleteComment(int id) {
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        comment.setActive(false);
+        return commentRepository.save(comment);
     }
 }

@@ -3,6 +3,7 @@ package com.devbook.formattech.service.implementation;
 import com.devbook.formattech.Dto.StackDto;
 import com.devbook.formattech.converter.StackMapper;
 import com.devbook.formattech.entity.Stack;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.StackRepository;
 import com.devbook.formattech.service.StackService;
@@ -56,10 +57,12 @@ public class StackServiceImpl implements StackService {
         return stackMapper.stackDto(updatedStack);
     }
 
-    @Override
-    public void deleteStack(int id) {
-        Stack existingStack = stackRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Stack not found with id: " + id));
-        stackRepository.delete(existingStack);
+
+    public Stack deleteStack(int id) {
+        Stack stack = stackRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        stack.setActive(false);
+        return stackRepository.save(stack);
     }
+
 }

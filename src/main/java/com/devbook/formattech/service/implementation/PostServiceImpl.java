@@ -3,8 +3,10 @@ package com.devbook.formattech.service.implementation;
 import com.devbook.formattech.Dto.PostDto;
 import com.devbook.formattech.converter.PostMapper;
 import com.devbook.formattech.entity.Post;
+import com.devbook.formattech.entity.User;
 import com.devbook.formattech.exceptions.ResourceNotFoundException;
 import com.devbook.formattech.repository.PostRepository;
+import com.devbook.formattech.repository.UserRepository;
 import com.devbook.formattech.service.PostService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,9 @@ public class PostServiceImpl implements PostService {
 
     @Autowired
     private PostMapper postMapper;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @Override
@@ -58,10 +63,31 @@ public class PostServiceImpl implements PostService {
         return postMapper.postDto(updatedPost);
     }
 
+
+    public Post createPostForUser(int userId, PostDto postDto) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
+
+        Post post = new Post();
+        post.setPost_content(postDto.getPost_content());
+        post.setPost_picture_url(postDto.getPost_picture_url());
+        post.setPost_media_url(postDto.getPost_media_url());
+        post.setUser(user);
+
+        return postRepository.save(post);
+    }
+
     @Override
-    public void deletePost(int id) {
-        Post existingPost = postRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Post not found with id: " + id));
-        postRepository.delete(existingPost);
+    public List<Post> getPostsByUser(int userId) {
+        return postRepository.findActivePostsByUserId(userId);
+    }
+
+    public Post deactivatePost(int postId) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Post not found with id: " + postId));
+
+        post.setActive(false);
+
+        return postRepository.save(post);
     }
 }

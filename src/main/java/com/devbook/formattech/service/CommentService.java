@@ -1,6 +1,7 @@
 package com.devbook.formattech.service;
 
 import com.devbook.formattech.Dto.CommentDto;
+import com.devbook.formattech.entity.Comment;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface CommentService {
     List<CommentDto> getAllComments();
     CommentDto getCommentById(int id);
     CommentDto updateComment(int id, CommentDto commentDto);
-    void deleteComment(int id);
+    Comment deleteComment(int id);
 }
